@@ -3,9 +3,9 @@ const { ethers } = require("hardhat");
 async function main() {
   const SampleToken = await ethers.getContractFactory("SampleToken");
   const sample_token = await SampleToken.deploy(
-    "Defenetly Not Scum Token",
-    "DNST",
-    18,
+    "Atari Jaguar  Token",
+    "AJT",
+    3,
     10000
   );
 

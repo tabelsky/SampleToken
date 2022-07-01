@@ -106,18 +106,15 @@ describe("SampleToken", function () {
     ).to.be.revertedWith("not enough allowance");
   });
 
-  it("check transfer", async function () {
+  it("check transferFrom", async function () {
     await sampleToken.mint(account_1.address, 5000);
     await await (
       await sampleToken.connect(account_1)
     ).approve(account_2.address, 4000);
+    const con = await sampleToken.connect(account_2);
     const event = (
       await (
-        await sampleToken.transferFrom(
-          account_1.address,
-          account_2.address,
-          1000
-        )
+        await con.transferFrom(account_1.address, account_2.address, 1000)
       ).wait()
     ).events[0];
     expect(event.args[0]).to.equal(account_1.address);

@@ -1,1 +1,1 @@
-npx hardhat verify 0x21a9834fef5a7634141960F71D95A3E4dB0BC6f5 --network ropsten "Defenetly Not Scum Token" "DNST" 18 10000
+npx hardhat verify 0x188c417F1d3c5Bd611153E62079F79DDfaF22374 --network ropsten "Atari Jaguar  Token" "AJT" 3 10000

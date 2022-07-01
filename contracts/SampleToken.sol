@@ -69,8 +69,8 @@ contract SampleToken {
         return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _value) public hasAmount(_from, _value)  hasAllowance(_from, _to, _value) returns (bool success) {
-        allowances[_from][_to] -= _value;
+    function transferFrom(address _from, address _to, uint256 _value) public hasAmount(_from, _value)  hasAllowance(_from, msg.sender, _value) returns (bool success) {
+        allowances[_from][msg.sender] -= _value;
         accounts[_from] -= _value;
         accounts[_to] += _value;
         emit Transfer(_from, _to, _value);

@@ -26,7 +26,7 @@ module.exports = {
   solidity: "0.8.15",
   networks: {
     ropsten: {
-      url: process.env.POPSTER_INFURA_URL || "",
+      url: process.env.ROPSTER_INFURA_URL || "",
       accounts:
         process.env.ROPSTEN_INFURA_PRIVAT_KEY !== undefined
           ? [process.env.ROPSTEN_INFURA_PRIVAT_KEY]

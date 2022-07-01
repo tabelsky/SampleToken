@@ -3,7 +3,7 @@ const { task } = require("hardhat/config");
 require("@nomiclabs/hardhat-waffle");
 
 const ROPSTEN_DEFAULT_CONTRACT_ADRESS =
-  "0x21a9834fef5a7634141960F71D95A3E4dB0BC6f5";
+  "0x188c417F1d3c5Bd611153E62079F79DDfaF22374";
 
 async function getSampleToken(contract, hre) {
   contract = contract || ROPSTEN_DEFAULT_CONTRACT_ADRESS;
@@ -18,8 +18,9 @@ task("mint", "mint")
   .addParam("value", "amount of tokens")
   .setAction(async ({ contract, to, value }, hre) => {
     const sampleToken = await getSampleToken(contract, hre);
-    to = to || (await hre.ethers.getSigners())[0];
-    console.log(await sampleToken.mint(to.address, value));
+    to = to || (await hre.ethers.getSigners())[0].address;
+
+    console.log(await sampleToken.mint(to, value));
   });
 
 task("burn", "burn")
